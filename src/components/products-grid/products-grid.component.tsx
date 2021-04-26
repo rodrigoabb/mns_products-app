@@ -13,15 +13,15 @@ interface IProductsGridProps {
 
 const ProductsGrid: React.FC<IProductsGridProps> = ({ products }: IProductsGridProps ) => {
   return (
-    <div className="products-grid">
+    <ul className="products-grid">
       {
         products.map((product: IProduct) => (
-          <div key={ product.id }>
+          <li className="products-grid__item" key={ product.id }>
             <ProductsGridItem product= { product }/>
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
   );
 }
 
