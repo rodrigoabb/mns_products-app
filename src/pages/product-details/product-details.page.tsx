@@ -23,7 +23,6 @@ const ProductDetails: React.FC<TopicDetailProps> = ({ match }) => {
   const { data, loading, error} = useGetProduct(match.params.productId);
 
   useEffect(() => {
-    console.log('data: ', data);
     if (data) {
       setProductData(data.product);
     }
