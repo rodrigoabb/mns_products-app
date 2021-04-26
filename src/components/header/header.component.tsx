@@ -6,7 +6,7 @@ import './header.component.scss';
 const Header: React.FC = () => {
   return (
     <div className="header">
-      <header className="">
+      <header className="" title="header">
         <Link to={`/`} style={{ textDecoration: 'none', color: 'inherit'}}>
           <div className="logo">
             <img src={'/res/logo.png'} alt="logo"/>
