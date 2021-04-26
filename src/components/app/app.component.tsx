@@ -8,8 +8,7 @@ import {
 import { ApolloProvider } from '@apollo/client';
 
 import Header from '../header/header.component';
-import Home from '../../pages/home/home.page';
-import ProductDetails from '../../pages/product-details/product-details.page';
+import MainContent from '../../pages/main-content/main-content.page';
 import client from '../../common/apollo-client';
 
 import '../../common/styles';
@@ -20,14 +19,7 @@ const App: React.FC = () => {
     <ApolloProvider client={ client  }>
       <Router>
         <Header />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/product/:productId" exact>
-              <ProductDetails />
-            </Route>
-          </Switch>
+        <MainContent />
       </Router>
     </ApolloProvider>
   );
