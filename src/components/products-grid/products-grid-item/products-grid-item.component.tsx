@@ -6,14 +6,27 @@ import { getImageUrl } from '../../../common/utils/helperFunctions';
 
 import './products-grid-item.component.scss';
 
-const ProductsGridItem: React.FC<{ product: IProduct }> = ({ product }: { product: IProduct}) => {
+interface IProductProps {
+  product: IProduct,
+  badge: string | null,
+};
+
+const ProductsGridItem: React.FC<IProductProps> = ({ product, badge }: { product: IProduct, badge: string | null}) => {
 
   const ccy_sym = COMMON_CURRENCIES[product.price.currency_code]?.symbol || '£';
 
   return (
     <div className="products-grid-item">
       <div className="card">
-        <img src={ getImageUrl(product.image_key) } alt={ product.name }/>
+        <div className="product-image">
+          <img src={ getImageUrl(product.image_key) } alt={ product.name }/>
+          {
+            badge &&
+            <div className="badge">
+              <img src={`/res/${badge}_icon.jpg`} alt={`${badge} badge`}/>
+            </div>
+          }
+        </div>
         <div className="info-container">
           <div className="name">{ product.name }</div>
           <div className="price">
