@@ -1,12 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './header.component.scss';
 
 const Header: React.FC = () => {
   return (
-    <header>
-      <nav>Header</nav>
-    </header>
+    <div className="header">
+      <header className="">
+        <Link to={`/`} style={{ textDecoration: 'none', color: 'inherit'}}>
+          <div className="logo">
+            <img src={'/res/logo.png'} alt="logo"/>
+          </div>
+        </Link>
+      </header>
+    </div>
   );
 }
 
