@@ -6,5 +6,10 @@ export interface IProduct {
     currency_code: string,
     current_price: number,
     original_price: number | null,
-  }
+  },
+  information: [
+    {
+      section_text: string,
+    },
+  ]
 };
