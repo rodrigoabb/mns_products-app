@@ -40,8 +40,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 
-## `Docker commands`
-
+## Docker commands
 
 ### `docker build -t rodrigoabbas/mns_products-app .`
 Build the image on your local environment
@@ -52,6 +51,9 @@ Run docker container
 ### `docker-compose up`
 Run both frontend app (this one) and GraphQL API server (provided)
 
+NOTE: for 'docker-compose up' you need to have built both images already:
+- chrismns/tech-test-mock-server:0.1.0 (API)
+- rodrigoabbas/mns_products-app:latest (React APP)
 
 ## Learn More
 

@@ -2,7 +2,7 @@ version: "3"
 
 services:
     products-app:
-        image: rodrigoabbas/mns_products-app
+        image: rodrigoabbas/mns_products-app:latest
         stdin_open: true
         ports:
             - "3000:3000"   
