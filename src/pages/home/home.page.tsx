@@ -11,9 +11,7 @@ import './home.page.scss';
 const Home: React.FC = () => {
 
   const [ products, setProducts ] = useState<IProduct[]>([]);
-  // const products = useGetProducts();
   const { data, loading, error} = useGetProducts();
-  // const products = data.productList;
 
   useEffect(() => {
     console.log('data: ', data);
@@ -21,6 +19,23 @@ const Home: React.FC = () => {
       setProducts(data.productList);
     }
   }, [data])
+
+  if (loading) {
+    return (
+      <div>
+        Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h4>Something has happened</h4>
+        <p>{ error } </p>
+      </div>
+    );
+  }
 
   return (
     <div className="home">
