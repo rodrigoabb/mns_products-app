@@ -20,10 +20,6 @@ const Home: React.FC = () => {
   const { data: userData, loading: userLoading, error: userError} = useGetUser(USER_ID);
 
   useEffect(() => {
-    console.log('HOMEPAGE');
-  }, []);
-
-  useEffect(() => {
     if (productsData) {
       setProducts(productsData.productList);
     }
