@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+    products-app:
+        image: rodrigoabbas/mns_products-app
+        stdin_open: true
+        ports:
+            - "3000:3000"   
+
+    api-server: 
+        image: chrismns/tech-test-mock-server:0.1.0
+        ports:
+            - "3001:3001"
+        
