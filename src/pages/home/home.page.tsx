@@ -14,9 +14,14 @@ const USER_ID = "5";
 const Home: React.FC = () => {
 
   const [ products, setProducts ] = useState<IProduct[]>([]);
-  const [ user, setUser ] = useState<IUser>();
+  const [ user, setUser ] = useState<IUser | null>();
+  const [ isLoading, setIsLoading ] = useState<boolean>(false);
   const { data: productsData, loading: productsLoading, error: productsError} = useGetProducts();
   const { data: userData, loading: userLoading, error: userError} = useGetUser(USER_ID);
+
+  useEffect(() => {
+    console.log('HOMEPAGE');
+  }, []);
 
   useEffect(() => {
     if (productsData) {
@@ -30,7 +35,11 @@ const Home: React.FC = () => {
     }
   }, [userData])
 
-  if (productsLoading || userLoading) {
+  useEffect(() => {
+      setIsLoading(productsLoading || userLoading);
+  }, [productsLoading, userLoading])
+
+  if (isLoading) {
     return (
       <div>
         Loading...
@@ -38,12 +47,30 @@ const Home: React.FC = () => {
     );
   }
 
-  if ((!user || !products) || productsError || userError) {
+  if (productsError || userError) {
     return (
       <div>
         <h4>Something has happened</h4>
-        <p>{ productsError } </p>
-        <p>{ userError } </p>
+        <p>- { productsError } </p>
+        <p>- { userError } </p>
+      </div>
+    );
+  }
+
+  if (products.length === 0) {
+    return (
+      <h4>
+        No products available
+      </h4>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div>
+        <h4>
+          Wrong user
+        </h4>
       </div>
     );
   }

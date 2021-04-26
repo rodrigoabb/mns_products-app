@@ -14,8 +14,7 @@ interface IProductsGridProps {
 };
 
 const ProductsGrid: React.FC<IProductsGridProps> = ({ products, user }: IProductsGridProps ) => {
-  const { offers: user_offers } = user;
-  const { available_badges } = user;
+  const { offers: user_offers, available_badges } = user;
   const available_badges_array = available_badges.split('||');
 
   const userBadgeObj: any = {};
@@ -24,6 +23,7 @@ const ProductsGrid: React.FC<IProductsGridProps> = ({ products, user }: IProduct
     const name_n_types = badge.split(':');
     const name = name_n_types[0];
     const types = name_n_types[1].split(',');
+    // Adding attributes in priority order
     userBadgeObj[name] = types;
   }
 
@@ -43,6 +43,7 @@ const ProductsGrid: React.FC<IProductsGridProps> = ({ products, user }: IProduct
 
           let badgeName: string | null = null;
           for (let key in userBadgeObj) {
+            // Check (in priority order) if there's any id matching
             if (userBadgeObj[key].some((element: string) => applicable_badges.includes(element))) {
               badgeName = key;
               break;
