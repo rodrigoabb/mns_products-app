@@ -1,3 +1,5 @@
+@import '../../common/utils/style-constants.scss';
+
 .product-details {
 
     .card {
@@ -5,6 +7,18 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         padding: 10px;
         background-color: #FFF;
+        
+        @media (max-width: $tablet-portrait-upper-boundary) {
+            flex-direction: column;
+            flex-flow: column-reverse;
+        }
+        
+        .product-image {
+            @media (max-width: $tablet-portrait-upper-boundary) {
+                display: flex;
+                justify-content: center;
+            }
+        }
         
         .info-container {
             display: flex;
