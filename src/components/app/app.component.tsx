@@ -9,7 +9,7 @@ import { ApolloProvider } from '@apollo/client';
 
 import Header from '../header/header.component';
 import Home from '../../pages/home/home.page';
-import ProductDetails from '../../pages/productDetails/productDetails.page';
+import ProductDetails from '../../pages/product-details/product-details.page';
 import client from '../../common/apollo-client';
 
 import '../../common/styles';
@@ -21,11 +21,11 @@ const App: React.FC = () => {
       <Router>
         <Header />
           <Switch>
-            <Route path="/productDetails">
-              <ProductDetails />
-            </Route>
-            <Route path="/">
+            <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/product/:productId" exact>
+              <ProductDetails />
             </Route>
           </Switch>
       </Router>
