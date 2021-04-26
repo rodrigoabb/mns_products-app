@@ -1,5 +1,4 @@
 import { gql, QueryResult, useQuery } from '@apollo/client';
-import { IProduct } from '../../common/interfaces/product.interface';
 
 const GET_PRODUCTS = gql`
   query GetProducts {
